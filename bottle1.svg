@@ -29,7 +29,7 @@
   <!-- Label -->
   <rect x="65" y="130" width="70" height="40" rx="5" ry="5" fill="white" opacity="0.9"/>
   <text x="100" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#0083b0">TUSSAR</text>
-  <text x="100" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">Pure Water</text>
+  <text x="100" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">Mineral Water</text>
   <text x="100" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">1L</text>
   
   <!-- Reflection -->
