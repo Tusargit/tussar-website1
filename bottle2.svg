@@ -1,0 +1,44 @@
+<svg width="200" height="300" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="jarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="waterGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b4db;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#0083b0;stop-opacity:0.5" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Large Jar Body -->
+  <rect x="30" y="90" width="140" height="170" rx="25" ry="25" fill="url(#jarGradient)" stroke="#0083b0" stroke-width="2"/>
+  
+  <!-- Jar Neck -->
+  <rect x="70" y="50" width="60" height="50" rx="8" ry="8" fill="url(#jarGradient)" stroke="#0083b0" stroke-width="2"/>
+  
+  <!-- Handle -->
+  <path d="M170,140 Q190,140 190,180 Q190,220 170,220" stroke="#0083b0" stroke-width="3" fill="none"/>
+  
+  <!-- Jar Cap -->
+  <rect x="65" y="30" width="70" height="30" rx="10" ry="10" fill="#0083b0"/>
+  <rect x="70" y="35" width="60" height="15" rx="5" ry="5" fill="#ffd166"/>
+  
+  <!-- Water Inside -->
+  <rect x="35" y="95" width="130" height="160" rx="22" ry="22" fill="url(#waterGradient2)"/>
+  
+  <!-- Highlight -->
+  <rect x="45" y="95" width="20" height="160" rx="10" ry="10" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- Large Label -->
+  <rect x="50" y="140" width="100" height="60" rx="8" ry="8" fill="white" opacity="0.9"/>
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0083b0">TUSSAR</text>
+  <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Premium</text>
+  <text x="100" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Mineral Water</text>
+  <text x="100" y="197" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0083b0">20L</text>
+  
+  <!-- Reflection -->
+  <ellipse cx="80" cy="130" rx="12" ry="20" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Base -->
+  <ellipse cx="100" cy="270" rx="70" ry="10" fill="#e0f2fe" opacity="0.6"/>
+</svg>
