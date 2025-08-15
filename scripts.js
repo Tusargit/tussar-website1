@@ -55,14 +55,29 @@ function initializeOrderCalculators() {
 // ===== Popup Handling =====
 function openOrderModal(product) {
   const modal = document.getElementById("orderModal");
+  const overlay = document.getElementById("modalOverlay");
   const mProduct = document.getElementById("mProduct");
 
-  if (mProduct) {
+  if (mProduct && product) {
     mProduct.value = product;
     // Trigger calculation update
     mProduct.dispatchEvent(new Event("change"));
   }
+
+  modal.classList.add("active");
+  overlay.classList.add("active");
+  document.body.classList.add("modal-open");
   modal.setAttribute("aria-hidden", "false");
+}
+
+function closeOrderModal() {
+  const modal = document.getElementById("orderModal");
+  const overlay = document.getElementById("modalOverlay");
+
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("modal-open");
+  modal.setAttribute("aria-hidden", "true");
 }
 
 function showSuccessPopup(messageId) {
@@ -80,8 +95,49 @@ function closeOrderSuccess() {
   if (el) el.style.display = "none";
 }
 
+/* ===== Reviews (restored so the button doesn't break) ===== */
+function renderReviews() {
+  const list = document.getElementById("reviewsList");
+  if (!list) return;
+  const reviews = JSON.parse(localStorage.getItem("tussar_reviews") || "[]");
+  list.innerHTML = "";
+  reviews.forEach((r) => {
+    const box = document.createElement("div");
+    box.className = "review-box";
+    box.innerHTML = `
+      <p>"${r.text.replace(/</g, "&lt;")}"</p>
+      <strong>- ${r.name.replace(/</g, "&lt;")}</strong>
+      <div class="review-date">${new Date(r.date).toLocaleString()}</div>
+    `;
+    list.appendChild(box);
+  });
+}
+function submitReview() {
+  const text = document.getElementById("newReviewText").value.trim();
+  const name = (document.getElementById("reviewerName").value || "Anonymous").trim();
+  if (!text) {
+    alert("Please write a short review.");
+    return;
+  }
+  const reviews = JSON.parse(localStorage.getItem("tussar_reviews") || "[]");
+  reviews.unshift({ text, name, date: Date.now() });
+  localStorage.setItem("tussar_reviews", JSON.stringify(reviews));
+  document.getElementById("newReviewText").value = "";
+  document.getElementById("reviewerName").value = "";
+  renderReviews();
+}
+
 // ===== DOM Ready =====
 document.addEventListener("DOMContentLoaded", function () {
+  // Ensure overlay exists (we added it statically, but keep fallback)
+  let overlay = document.getElementById("modalOverlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.id = "modalOverlay";
+    document.body.appendChild(overlay);
+  }
+  overlay.addEventListener("click", closeOrderModal);
+
   // Booking Page
   if (document.getElementById("productSelect")) {
     initializeBookingPage();
@@ -125,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
       modalForm.reset();
       initializeOrderCalculators();
       showSuccessPopup("successMessage");
-      document.getElementById("orderModal").setAttribute("aria-hidden", "true");
+      closeOrderModal();
     });
   }
 
@@ -133,22 +189,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const openModalBtn = document.getElementById("openModalFromInline");
   if (openModalBtn) {
     openModalBtn.addEventListener("click", function () {
-      document
-        .getElementById("orderModal")
-        .setAttribute("aria-hidden", "false");
+      openOrderModal("");
     });
   }
 
-  // Close Modal
+  // Close Modal buttons
   const modalClose = document.getElementById("modalClose");
   const modalCancel = document.getElementById("modalCancel");
   [modalClose, modalCancel].forEach((btn) => {
-    if (btn)
-      btn.addEventListener("click", () => {
-        document
-          .getElementById("orderModal")
-          .setAttribute("aria-hidden", "true");
-      });
+    if (btn) btn.addEventListener("click", closeOrderModal);
+  });
+
+  // ESC to close modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeOrderModal();
   });
 
   // Mobile Menu
@@ -158,4 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".nav-links").classList.toggle("active");
     });
   }
+
+  // Reviews
+  renderReviews();
 });
