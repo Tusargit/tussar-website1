@@ -1,74 +1,35 @@
-<svg width="300" height="250" viewBox="0 0 300 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="300" height="250" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="facilityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="machineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6c757d;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#495057;stop-opacity:1" />
+    <linearGradient id="bgGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8e1" />
+      <stop offset="100%" stop-color="#ffe0b2" />
     </linearGradient>
   </defs>
+
+  <!-- Background -->
+  <rect width="300" height="250" fill="url(#bgGradient2)"/>
+
+  <!-- Factory base -->
+  <rect x="30" y="140" width="240" height="70" fill="#e8f5e8" stroke="#4caf50" stroke-width="2" rx="4"/>
   
-  <!-- Building Background -->
-  <rect width="300" height="250" fill="url(#facilityGradient)"/>
+  <!-- Chimney -->
+  <rect x="55" y="80" width="24" height="60" fill="#b0bec5"/>
+  <rect x="51" y="75" width="32" height="10" fill="#90a4ae"/>
   
-  <!-- Factory Building -->
-  <rect x="0" y="120" width="300" height="130" fill="#e9ecef" stroke="#6c757d" stroke-width="2"/>
+  <!-- Tanks -->
+  <rect x="100" y="110" width="40" height="60" rx="6" fill="#cfd8dc" stroke="#78909c" stroke-width="1"/>
+  <rect x="150" y="110" width="40" height="60" rx="6" fill="#cfd8dc" stroke="#78909c" stroke-width="1"/>
+  <rect x="200" y="110" width="40" height="60" rx="6" fill="#cfd8dc" stroke="#78909c" stroke-width="1"/>
   
-  <!-- Roof -->
-  <polygon points="0,120 50,80 250,80 300,120" fill="#495057"/>
-  
-  <!-- Windows -->
-  <rect x="20" y="140" width="40" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
-  <rect x="80" y="140" width="40" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
-  <rect x="140" y="140" width="40" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
-  <rect x="200" y="140" width="40" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
-  <rect x="260" y="140" width="30" height="30" fill="#87ceeb" stroke="#495057" stroke-width="1"/>
-  
-  <!-- Bottling Machines -->
-  <rect x="40" y="180" width="20" height="40" fill="url(#machineGradient)" rx="5"/>
-  <rect x="80" y="180" width="20" height="40" fill="url(#machineGradient)" rx="5"/>
-  <rect x="120" y="180" width="20" height="40" fill="url(#machineGradient)" rx="5"/>
-  <rect x="160" y="180" width="20" height="40" fill="url(#machineGradient)" rx="5"/>
-  <rect x="200" y="180" width="20" height="40" fill="url(#machineGradient)" rx="5"/>
-  
-  <!-- Conveyor Belt -->
-  <rect x="30" y="220" width="240" height="8" fill="#495057"/>
-  
-  <!-- Bottles on Conveyor -->
-  <rect x="45" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="65" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="85" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="105" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="125" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="145" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="165" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="185" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="205" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="225" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  <rect x="245" y="210" width="6" height="12" fill="#e3f2fd" rx="2"/>
-  
-  <!-- Quality Control Station -->
-  <rect x="240" y="170" width="30" height="50" fill="#28a745" rx="5"/>
-  <circle cx="255" cy="185" r="8" fill="white"/>
-  <text x="255" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#28a745">QC</text>
-  
-  <!-- Steam/Purification Effects -->
-  <g fill="rgba(255,255,255,0.6)">
-    <circle cx="50" cy="175" r="3"/>
-    <circle cx="90" cy="172" r="2"/>
-    <circle cx="130" cy="176" r="3"/>
-    <circle cx="170" cy="174" r="2"/>
-    <circle cx="210" cy="173" r="3"/>
-  </g>
-  
-  <!-- Company Logo on Building -->
-  <rect x="130" y="100" width="40" height="20" fill="white" rx="5"/>
-  <text x="150" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#0083b0">TUSSAR</text>
-  <text x="150" y="116" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#666">FACILITY</text>
-  
+  <!-- Conveyor -->
+  <rect x="60" y="165" width="180" height="10" fill="#bdbdbd" rx="5"/>
+  <rect x="70" y="150" width="8" height="20" fill="#e3f2fd" stroke="#0083b0" stroke-width="0.8" rx="2"/>
+  <rect x="100" y="150" width="8" height="20" fill="#e3f2fd" stroke="#0083b0" stroke-width="0.8" rx="2"/>
+  <rect x="130" y="150" width="8" height="20" fill="#e3f2fd" stroke="#0083b0" stroke-width="0.8" rx="2"/>
+  <rect x="160" y="150" width="8" height="20" fill="#e3f2fd" stroke="#0083b0" stroke-width="0.8" rx="2"/>
+  <rect x="190" y="150" width="8" height="20" fill="#e3f2fd" stroke="#0083b0" stroke-width="0.8" rx="2"/>
+
   <!-- Title -->
-  <text x="10" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#495057">Modern Bottling Plant</text>
-  <text x="10" y="35" font-family="Arial, sans-serif" font-size="10" fill="#6c757d">State-of-the-art purification & packaging</text>
+  <text x="10" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4caf50">Modern Facility</text>
+  <text x="10" y="35" font-family="Arial, sans-serif" font-size="10" fill="#666">State-of-the-art purification &amp; bottling</text>
 </svg>
